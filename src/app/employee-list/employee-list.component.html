@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#" style="text-align: center;">Employee Example</a>
+    <a routerLink="add-employee">
+    <button class="btn btn-success my-2 my-lg-0" data-toggle="modal" data-target="#addEmployeeModal"
+    style="position: right;">
+      <i class="bi bi-plus"></i> Add Employee
+    </button>
+</a>
+  </nav>
+<br>
+<br>
+
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr >
+      <th cope="col">Name</th>
+      <th cope="col">Age</th>
+      <th cope="col">Email</th>
+      <th cope="col">Occupation</th>
+      <th cope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees; let i = index">
+      <td>
+        <span *ngIf="!employee.editing">{{ employee.name }}</span>
+        <input *ngIf="employee.editing" type="text" [(ngModel)]="employee.name">
+      </td>
+      <td>
+        <span *ngIf="!employee.editing">{{ employee.age }}</span>
+        <input *ngIf="employee.editing" type="number" [(ngModel)]="employee.age">
+      </td>
+      <td>
+        <span *ngIf="!employee.editing">{{ employee.email }}</span>
+        <input *ngIf="employee.editing" type="email" [(ngModel)]="employee.email">
+      </td>
+      <td>
+        <span *ngIf="!employee.editing">{{ employee.occupation }}</span>
+        <input *ngIf="employee.editing" type="text" [(ngModel)]="employee.occupation">
+      </td>
+      <td>
+        <button class="btn btn-primary btn-sm" style="margin-right: 25px" (click)="employee.editing = !employee.editing">
+          <i class="bi bi-pencil-fill"></i> {{ employee.editing ? 'Save' : 'Edit' }}
+        </button>
+        <button class="btn btn-danger btn-sm" (click)="deleteEmployee(i)">
+          <i class="bi bi-trash-fill"></i> Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

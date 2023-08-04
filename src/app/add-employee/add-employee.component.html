@@ -1,0 +1,27 @@
+<h1 style="text-align:center">Add Employee</h1>
+<form (ngSubmit)="addValues(employeeForm)" #employeeForm="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name"  name="name" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input type="number" class="form-control" id="age" name="age" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" name="email" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="occupation">Occupation</label>
+      <input type="text" class="form-control" id="occupation" name="occupation" ngModel>
+    </div>
+    <br>
+    <br>
+   
+    <button type="submit" class="btn btn-primary"  style="margin-left:45px; font-size:30px; margin: auto;  " >Add</button>
+    
+  </form>
+  <br>
+  <br>
+  <button class="btn btn-danger" style="margin-right:45px; font-size:30px;margin: auto;  " (click)="goToHomePage()"  >Cancel</button>
